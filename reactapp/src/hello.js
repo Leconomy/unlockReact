@@ -27,18 +27,35 @@ class Hello extends React.Component {
 		this.handleClick = this.handleClick.bind(this);
 	}
 
-	handleClick() {
-
+	handleClick(ev) {
+		// ev.stopPropagation();
+		// ev.persist();
+		console.log(1);
 		this.setState(state => ({
 			a: ++state.a
 		}));
 	}
+	
+	handleClick2() {
 
+		console.log(2);
+	}
+	
+	handleClick3() {
+
+		console.log(3);
+	}
+	
+	handleClick4() {
+
+		console.log(4);
+	}
+	
 	render() {
 		return (
-			<div>
+			<div onClick={this.handleClick2} onClickCapture={this.handleClick3}>
 				<span>{this.state.a}</span>
-				<p onClick={this.handleClick}>点击</p>
+				<p onClick={this.handleClick} onClickCapture={this.handleClick4}>点击</p>
 			</div> 
 		)
 	}
