@@ -26,6 +26,7 @@
     "koa-static": "^5.0.0",
     "koa-static-cache": "^5.1.2",
     "koa-views": "^6.1.4",
+    "pm2": "^4.5.0",
     "request-promise": "^4.2.2"
   }
 }
