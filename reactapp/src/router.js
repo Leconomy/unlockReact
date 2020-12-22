@@ -20,10 +20,41 @@ function Users() {
   return <h2>Users</h2>;
 }
 
+// function ListItemLink({ to, ...rest }) {
+//   console.error(to, rest)
+//   return (
+//     <Route
+//       path={to}
+//       children={({ match }) => (
+//         <li className={match ? "active" : ""}>
+//           <Link to={to} {...rest}>1</Link>
+//         </li>
+//       )}
+//     />
+//   );
+// }
+
+// export default function App() {
+//   return (
+//     <Router>
+//     <ul>
+//       <ListItemLink to="/somewhere" />
+//       <ListItemLink to="/somewhere-else" />
+//     </ul>
+//   </Router>
+//   );
+// }
 
 export default function App() {
   return (
-    <Router>
+    <Router getUserConfirmation={(message, callback) => {
+      // this is the default behavior
+      console.log(message)
+      const allowTransition = window.confirm(message);
+      callback(allowTransition);
+    }}
+    forceRefresh={true}
+    >
       <div>
         <nav>
           <ul>
